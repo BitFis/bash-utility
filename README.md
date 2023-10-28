@@ -108,6 +108,11 @@ Detailed documentation is available at <https://labbots.github.io/bash-utility/>
   - [interaction::prompt_response()](#interactionprompt_response)
 - [Json](#json)
   - [json::get_value()](#jsonget_value)
+- [Log](#log)
+  - [log::warn()](#logwarn)
+  - [log::highlight()](#loghighlight)
+  - [log::info()](#loginfo)
+  - [log::die()](#logdie)
 - [Miscellaneous](#miscellaneous)
   - [misc::check_internet_connection()](#misccheck_internet_connection)
   - [misc::get_pid()](#miscget_pid)
@@ -2144,6 +2149,87 @@ Input to the function can be a pipe output, here-string or file.
 json::get_value "id" "1" < json_file
 json::get_value "id" <<< "${json_var}"
 echo "{\"data\":{\"id\":\"123\",\"value\":\"name string\"}}" | json::get_value "id"
+```
+
+## Log
+
+Functions to facilitate logging in the script.
+
+### log::warn()
+
+Print a warning message.
+
+#### Arguments
+
+- ... message to be printed.
+
+#### Output on stdout
+
+- warning message.
+
+#### Example
+
+```bash
+log::highlight Watch out, this is a warning
+```
+
+### log::highlight()
+
+Print a highlight message.
+
+#### Arguments
+
+- ... message to be printed.
+
+#### Output on stdout
+
+- highlight message.
+
+#### Example
+
+```bash
+log::highlight Highlight this message
+```
+
+### log::info()
+
+Print a informational message.
+
+#### Arguments
+
+- ... message to be printed.
+
+#### Output on stdout
+
+- info message
+
+#### Example
+
+```bash
+log::info An informational message
+```
+
+### log::die()
+
+Print provided error message with stack trace and
+             exit script with error code 1.
+
+#### Arguments
+
+- ... string variable name for the error message.
+
+#### Exit codes
+
+- **1**:  Exit application in any case.
+
+#### Output on stdout
+
+- error message and script stack trace
+
+#### Example
+
+```bash
+log::die "Unexpected and not handable error occured"
 ```
 
 ## Miscellaneous

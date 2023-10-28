@@ -16,5 +16,6 @@ source src/terminal.sh
 source src/validation.sh
 source src/debug.sh
 source src/os.sh
+source src/log.sh
 
 
