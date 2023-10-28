@@ -20,6 +20,10 @@ _color_highlight=${_color_highlight:-"\e[1;32m"}
 _color_info=${_color_info:-"\e[0m"}
 
 # @internal
+# @description Terminal color for successful messages.
+_color_success=${_color_success:-"\e[1;32m"}
+
+# @internal
 # @description Reset terminal color.
 _color_reset=${_color_reset:-"\e[0m"}
 
@@ -32,7 +36,19 @@ _color_reset=${_color_reset:-"\e[0m"}
 #
 # @stdout error message.
 log::error() {
-    echo -e "${_color_error}$@${color_reset}"
+    echo -e "${_color_error}$@${_color_reset}"
+}
+
+# @description Print provided a success message.
+#
+# @example
+#   log::success Something important succeeded
+#
+# @arg ... message to be printed.
+#
+# @stdout success message.
+log::success() {
+    echo -e "${_color_success}$@${_color_reset}"
 }
 
 # @description Print a warning message.
@@ -44,7 +60,7 @@ log::error() {
 #
 # @stdout warning message.
 log::warn() {
-    echo -e "${_color_warning}$@${color_reset}"
+    echo -e "${_color_warning}$@${_color_reset}"
 }
 
 # @description Print a highlight message.
@@ -56,7 +72,7 @@ log::warn() {
 #
 # @stdout highlight message.
 log::highlight() {
-    echo -e "${_color_highlight}$@${color_reset}"
+    echo -e "${_color_highlight}$@${_color_reset}"
 }
 
 # @description Print a informational message.
@@ -68,7 +84,7 @@ log::highlight() {
 #
 # @stdout info message
 log::info() {
-    echo -e "${_color_info}$@${color_reset}"
+    echo -e "${_color_info}$@${_color_reset}"
 }
 
 # @description Print provided error message with stack trace and
